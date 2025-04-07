@@ -7,12 +7,7 @@ export default function IIWII() {
   return (
     <main className="min-h-screen bg-black text-white p-6 flex flex-col items-center justify-center space-y-12 relative overflow-hidden">
       {/* Animated background chart pattern */}
-      <motion.div 
-        className="absolute inset-0 opacity-10 z-0"
-        initial={{ pathLength: 0 }} 
-        animate={{ pathLength: 1 }} 
-        transition={{ duration: 4, repeat: Infinity, repeatType: "loop" }}
-      >
+      <div className="absolute inset-0 opacity-10 z-0">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
           <motion.polyline
             fill="none"
@@ -24,7 +19,7 @@ export default function IIWII() {
             transition={{ duration: 4, repeat: Infinity, repeatType: "loop" }}
           />
         </svg>
-      </motion.div>
+      </div>
 
       <motion.h1 
         className="text-6xl font-bold text-center z-10"
