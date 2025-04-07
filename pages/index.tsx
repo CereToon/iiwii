@@ -1,7 +1,11 @@
+'use client';
+
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Sparkles, Flame, Laugh } from "lucide-react";
 import { motion } from "framer-motion";
+import type { MotionProps } from "framer-motion";
+import type { ComponentPropsWithoutRef } from "react";
 import { MotionH1, MotionP, MotionDiv } from "../lib/motion";
 
 export default function IIWII() {
@@ -55,24 +59,30 @@ export default function IIWII() {
           show: { transition: { staggerChildren: 0.2 } },
         }}
       >
-        {[{
-          icon: <Flame size={40} />, 
-          title: "Chaos", 
-          text: "Markets crashing? Memes rising."
-        }, {
-          icon: <Laugh size={40} />, 
-          title: "Meme First", 
-          text: "Seriousness is overrated."
-        }, {
-          icon: <Sparkles size={40} />, 
-          title: "Vibes Only", 
-          text: "Absurd profits in absurd times."
-        }].map((item, i) => (
+        {[
+          {
+            icon: <Flame size={40} />,
+            title: "Chaos",
+            text: "Markets crashing? Memes rising.",
+          },
+          {
+            icon: <Laugh size={40} />,
+            title: "Meme First",
+            text: "Seriousness is overrated.",
+          },
+          {
+            icon: <Sparkles size={40} />,
+            title: "Vibes Only",
+            text: "Absurd profits in absurd times.",
+          },
+        ].map((item, i) => (
           <motion.div
-            key={i}
-            className="bg-zinc-900 rounded-2xl shadow-lg p-6"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            {...({
+              key: i,
+              className: "bg-zinc-900 rounded-2xl shadow-lg p-6",
+              whileHover: { scale: 1.05 },
+              whileTap: { scale: 0.95 },
+            } as ComponentPropsWithoutRef<"div"> & MotionProps)}
           >
             <Card>
               <CardContent className="flex flex-col items-center space-y-4">
@@ -91,27 +101,27 @@ export default function IIWII() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1 }}
       >
-        <a 
-          href="https://app.uniswap.org/explore/tokens/base/0x2758ce10caf35dddbd59025e7350acb4c74d66a7" 
-          target="_blank" 
+        <a
+          href="https://app.uniswap.org/explore/tokens/base/0x2758ce10caf35dddbd59025e7350acb4c74d66a7"
+          target="_blank"
           rel="noopener noreferrer"
         >
           <Button className="text-lg px-6 py-3 rounded-full bg-pink-600 hover:bg-pink-700">
             Buy $IIWII Now
           </Button>
         </a>
-        <a 
-          href="https://t.me/itiswhatitisofficial" 
-          target="_blank" 
+        <a
+          href="https://t.me/itiswhatitisofficial"
+          target="_blank"
           rel="noopener noreferrer"
         >
           <Button className="text-lg px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700">
             Join Telegram
           </Button>
         </a>
-        <a 
-          href="https://x.com/IiwiisBase" 
-          target="_blank" 
+        <a
+          href="https://x.com/IiwiisBase"
+          target="_blank"
           rel="noopener noreferrer"
         >
           <Button className="text-lg px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-900">
