@@ -3,6 +3,11 @@ import { Button } from "../components/ui/button";
 import { Sparkles, Flame, Laugh } from "lucide-react";
 import { motion } from "framer-motion";
 
+// Fix TypeScript type issues with motion components
+const MotionH1 = motion<HTMLHeadingElement>("h1");
+const MotionP = motion<HTMLParagraphElement>("p");
+const MotionDiv = motion<HTMLDivElement>("div");
+
 export default function IIWII() {
   return (
     <main className="min-h-screen bg-black text-white p-6 flex flex-col items-center justify-center space-y-12 relative overflow-hidden">
@@ -21,31 +26,31 @@ export default function IIWII() {
         </svg>
       </div>
 
-      <motion.h1 
+      <MotionH1
         className="text-6xl font-bold text-center z-10"
-        initial={{ opacity: 0, y: -50 }} 
-        animate={{ opacity: 1, y: 0 }} 
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         It Is What It Is <span className="text-pink-500">$IIWII</span>
-      </motion.h1>
+      </MotionH1>
 
-      <motion.p
+      <MotionP
         className="text-xl max-w-2xl text-center text-gray-300 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
       >
         Embrace the absurdity. The world’s on fire, and we’re vibing.
-      </motion.p>
+      </MotionP>
 
-      <motion.div className="z-10">
+      <MotionDiv className="z-10">
         <p className="text-sm text-gray-400 text-center mt-2">
           Contract: <span className="text-pink-500">0x2758ce10caf35dddbd59025e7350acb4c74d66a7</span>
         </p>
-      </motion.div>
+      </MotionDiv>
 
-      <motion.div
+      <MotionDiv
         className="grid grid-cols-1 md:grid-cols-3 gap-8 z-10"
         initial="hidden"
         animate="show"
@@ -82,9 +87,9 @@ export default function IIWII() {
             </Card>
           </motion.div>
         ))}
-      </motion.div>
+      </MotionDiv>
 
-      <motion.div
+      <MotionDiv
         className="flex flex-col md:flex-row items-center gap-4 z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -117,7 +122,7 @@ export default function IIWII() {
             Follow on X
           </Button>
         </a>
-      </motion.div>
+      </MotionDiv>
     </main>
   );
 }
