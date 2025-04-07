@@ -3,11 +3,6 @@ import { Button } from "../components/ui/button";
 import { Sparkles, Flame, Laugh } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Fix TypeScript type issues with motion components
-const MotionH1 = motion<HTMLHeadingElement>("h1");
-const MotionP = motion<HTMLParagraphElement>("p");
-const MotionDiv = motion<HTMLDivElement>("div");
-
 export default function IIWII() {
   return (
     <main className="min-h-screen bg-black text-white p-6 flex flex-col items-center justify-center space-y-12 relative overflow-hidden">
@@ -26,31 +21,38 @@ export default function IIWII() {
         </svg>
       </div>
 
-      <MotionH1
+      {/** motion.h1 with explicit type override for className etc. */}
+      <motion.h1
+        {...({} as React.HTMLAttributes<HTMLHeadingElement>)}
         className="text-6xl font-bold text-center z-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         It Is What It Is <span className="text-pink-500">$IIWII</span>
-      </MotionH1>
+      </motion.h1>
 
-      <MotionP
+      <motion.p
+        {...({} as React.HTMLAttributes<HTMLParagraphElement>)}
         className="text-xl max-w-2xl text-center text-gray-300 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
       >
         Embrace the absurdity. The world’s on fire, and we’re vibing.
-      </MotionP>
+      </motion.p>
 
-      <MotionDiv className="z-10">
+      <motion.div
+        {...({} as React.HTMLAttributes<HTMLDivElement>)}
+        className="z-10"
+      >
         <p className="text-sm text-gray-400 text-center mt-2">
           Contract: <span className="text-pink-500">0x2758ce10caf35dddbd59025e7350acb4c74d66a7</span>
         </p>
-      </MotionDiv>
+      </motion.div>
 
-      <MotionDiv
+      <motion.div
+        {...({} as React.HTMLAttributes<HTMLDivElement>)}
         className="grid grid-cols-1 md:grid-cols-3 gap-8 z-10"
         initial="hidden"
         animate="show"
@@ -87,9 +89,10 @@ export default function IIWII() {
             </Card>
           </motion.div>
         ))}
-      </MotionDiv>
+      </motion.div>
 
-      <MotionDiv
+      <motion.div
+        {...({} as React.HTMLAttributes<HTMLDivElement>)}
         className="flex flex-col md:flex-row items-center gap-4 z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -122,7 +125,7 @@ export default function IIWII() {
             Follow on X
           </Button>
         </a>
-      </MotionDiv>
+      </motion.div>
     </main>
   );
 }
