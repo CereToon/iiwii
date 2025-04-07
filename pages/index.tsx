@@ -21,9 +21,7 @@ export default function IIWII() {
         </svg>
       </div>
 
-      {/** motion.h1 with explicit type override for className etc. */}
       <motion.h1
-        {...({} as React.HTMLAttributes<HTMLHeadingElement>)}
         className="text-6xl font-bold text-center z-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -33,7 +31,6 @@ export default function IIWII() {
       </motion.h1>
 
       <motion.p
-        {...({} as React.HTMLAttributes<HTMLParagraphElement>)}
         className="text-xl max-w-2xl text-center text-gray-300 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -42,17 +39,13 @@ export default function IIWII() {
         Embrace the absurdity. The world’s on fire, and we’re vibing.
       </motion.p>
 
-      <motion.div
-        {...({} as React.HTMLAttributes<HTMLDivElement>)}
-        className="z-10"
-      >
+      <motion.div className="z-10">
         <p className="text-sm text-gray-400 text-center mt-2">
           Contract: <span className="text-pink-500">0x2758ce10caf35dddbd59025e7350acb4c74d66a7</span>
         </p>
       </motion.div>
 
       <motion.div
-        {...({} as React.HTMLAttributes<HTMLDivElement>)}
         className="grid grid-cols-1 md:grid-cols-3 gap-8 z-10"
         initial="hidden"
         animate="show"
@@ -92,7 +85,6 @@ export default function IIWII() {
       </motion.div>
 
       <motion.div
-        {...({} as React.HTMLAttributes<HTMLDivElement>)}
         className="flex flex-col md:flex-row items-center gap-4 z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
