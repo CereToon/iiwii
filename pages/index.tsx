@@ -3,10 +3,12 @@
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Sparkles, Flame, Laugh } from "lucide-react";
-import { motion } from "framer-motion";
-import type { MotionProps } from "framer-motion";
-import type { ComponentPropsWithoutRef } from "react";
-import { MotionH1, MotionP, MotionDiv } from "../lib/motion";
+import {
+  MotionH1,
+  MotionP,
+  MotionDiv,
+  MotionCardWrapper,
+} from "../lib/motion-elements";
 
 export default function IIWII() {
   return (
@@ -14,14 +16,11 @@ export default function IIWII() {
       {/* Animated background chart pattern */}
       <div className="absolute inset-0 opacity-10 z-0">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
-          <motion.polyline
+          <polyline
             fill="none"
             stroke="red"
             strokeWidth="2"
             points="0,20 10,30 20,25 30,35 40,20 50,45 60,30 70,55 80,40 90,70 100,50"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 4, repeat: Infinity, repeatType: "loop" }}
           />
         </svg>
       </div>
@@ -46,7 +45,10 @@ export default function IIWII() {
 
       <MotionDiv className="z-10">
         <p className="text-sm text-gray-400 text-center mt-2">
-          Contract: <span className="text-pink-500">0x2758ce10caf35dddbd59025e7350acb4c74d66a7</span>
+          Contract:{" "}
+          <span className="text-pink-500">
+            0x2758ce10caf35dddbd59025e7350acb4c74d66a7
+          </span>
         </p>
       </MotionDiv>
 
@@ -76,13 +78,11 @@ export default function IIWII() {
             text: "Absurd profits in absurd times.",
           },
         ].map((item, i) => (
-          <motion.div
-            {...({
-              key: i,
-              className: "bg-zinc-900 rounded-2xl shadow-lg p-6",
-              whileHover: { scale: 1.05 },
-              whileTap: { scale: 0.95 },
-            } as ComponentPropsWithoutRef<"div"> & MotionProps)}
+          <MotionCardWrapper
+            key={i}
+            className="bg-zinc-900 rounded-2xl shadow-lg p-6"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Card>
               <CardContent className="flex flex-col items-center space-y-4">
@@ -91,7 +91,7 @@ export default function IIWII() {
                 <p className="text-gray-400 text-center">{item.text}</p>
               </CardContent>
             </Card>
-          </motion.div>
+          </MotionCardWrapper>
         ))}
       </MotionDiv>
 
